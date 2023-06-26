@@ -2,6 +2,7 @@ import Head from 'next/head'
 
 import styles from '@/pages/index.module.css'
 import { useState } from 'react';
+import UserProfile from '@/components/userProfiles';
 
 export default function Home() {
   const [showText, setShowText] = useState(false);
@@ -42,6 +43,12 @@ export default function Home() {
           Show Text
         </button>
       </div>
+      <UserProfile
+        displayName={"Adarshnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"}
+        username={"dev.adarsh"}
+        email={"adarsh@dev.com"}
+        isEmailVerified={false}
+      />
       </main>
     </div>
   )
