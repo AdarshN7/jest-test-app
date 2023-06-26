@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
 
 import styles from '@/pages/index.module.css'
+import { useState } from 'react';
 
 export default function Home() {
+  const [showText, setShowText] = useState(false);
   return (
     <div className={styles.container}>
       <Head>
@@ -12,55 +13,36 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-<button>click me</button>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a href="https://vercel.com/new" className={styles.card}>
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      <h1>welcome to next.js! </h1>
+      <h2>Home Page</h2>
+      <button>Click Me</button>
+      <div>
+        <label htmlFor="randomText">Enter Random Text: </label>
+        <input id="randomText" />
+      </div>
+      <div>
+        <label htmlFor="specificText">Enter Specific Text:</label>
+        <input id="specificText" />
+      </div>
+      <div>
+        <input placeholder="Search..." />
+      </div>
+      <div>
+        <input value="AUDI Q5" onChange={() => {}} />
+      </div>
+      <div>
+        {showText && <span>This is the text!</span>}
+        <button
+          onClick={() => {
+            setTimeout(() => {
+              setShowText(!showText);
+            }, 1100);
+          }}
         >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+          Show Text
+        </button>
+      </div>
+      </main>
     </div>
   )
 }
